@@ -1,52 +1,51 @@
 # coding=utf-8
 
-from numpy import *
-import matplotlib
-import  matplotlib.pyplot as plt
-
-
 if __name__ == "__main__":
-    # import KNN.knn
-    # group, labels = KNN.knn.createDataSet()
-    # print KNN.knn.classify0([0.2,1.5], group, labels, 3)
-    #
-    # datingDataMat, datingLabels = KNN.knn.file2matrix('KNN\datingTestSet2.txt')
-    # print datingDataMat
-    # print datingLabels[0:20]
-    #
-    # from pylab import mpl
-    # mpl.rcParams['font.sans-serif'] = ['FangSong']  # 指定默认字体
-    # mpl.rcParams['axes.unicode_minus'] = False  # 解决保存图像是负号'-'显示为方块的问题
-    #
-    # fig = plt.figure()
-    # ax = fig.add_subplot(111)  #参数349的意思是：将画布分割成3行4列，图像画在从左到右从上到下的第9块
-    # ax.set_title(u'散点图')
-    # plt.xlabel(u'玩视频游戏所耗时间百分比')
-    # plt.ylabel(u'每年获取的飞行常客里程数')
-    # #plt.ylabel(u'每周消耗的冰淇淋公升数')
-    # ax.scatter(datingDataMat[:,0], datingDataMat[:,1], 15.0*array(datingLabels),15.0*array(datingLabels))
-    #
-    # plt.show()
+    import KNN.knn
+    from numpy import *
+    import matplotlib.pyplot as plt
 
-    # normalMat, ranges, minValue = KNN.knn.autoNormal(datingDataMat)
-    # print normalMat
-    # print ranges
-    # print minValue
-    #
-    # KNN.knn.datingClassTest()
-    # KNN.knn.handwritingClassTest()
+    group, labels = KNN.knn.createDataSet()
+    print KNN.knn.classify0([0.2,1.5], group, labels, 3)
+
+    datingDataMat, datingLabels = KNN.knn.file2matrix('KNN\datingTestSet2.txt')
+    print datingDataMat
+    print datingLabels[0:20]
+
+    from pylab import mpl
+    mpl.rcParams['font.sans-serif'] = ['FangSong']  # 指定默认字体
+    mpl.rcParams['axes.unicode_minus'] = False  # 解决保存图像是负号'-'显示为方块的问题
+
+    fig = plt.figure()
+    ax = fig.add_subplot(111)  #参数349的意思是：将画布分割成3行4列，图像画在从左到右从上到下的第9块
+    ax.set_title(u'散点图')
+    plt.xlabel(u'玩视频游戏所耗时间百分比')
+    plt.ylabel(u'每年获取的飞行常客里程数')
+    #plt.ylabel(u'每周消耗的冰淇淋公升数')
+    ax.scatter(datingDataMat[:,0], datingDataMat[:,1], 15.0*array(datingLabels),15.0*array(datingLabels))
+
+    plt.show()
+
+    normalMat, ranges, minValue = KNN.knn.autoNormal(datingDataMat)
+    print normalMat
+    print ranges
+    print minValue
+
+    KNN.knn.datingClassTest()
+
+    KNN.knn.handwritingClassTest()
     ################################
-    import TREES.tree
-    data,labels = TREES.tree.createDataSet()
-    print(data)
-    print(TREES.tree.calcShannonEnt(data))
-    print(TREES.tree.splitDataSet(data,0,1))
-
-    print(TREES.tree.chooseBestFeatureToSplit(data))
-    print(TREES.tree.createTree(data,labels))
-
-    import TREES.treePlotter
-    TREES.treePlotter.createPlot()
+    # import TREES.tree
+    # data,labels = TREES.tree.createDataSet()
+    # print(data)
+    # print(TREES.tree.calcShannonEnt(data))
+    # print(TREES.tree.splitDataSet(data,0,1))
+    #
+    # print(TREES.tree.chooseBestFeatureToSplit(data))
+    # print(TREES.tree.createTree(data,labels))
+    #
+    # import TREES.treePlotter
+    # TREES.treePlotter.createPlot()
     ##############################
     # matplotlib画图
     # fig = plt.figure()

@@ -57,7 +57,7 @@ def autoNormal(dataset):   #归一化特征值
 
 def datingClassTest():   #测试函数
     precent = 0.1    #取10%数据测试
-    datingDataMat, datingLabels = file2matrix('datingTestSet2.txt')
+    datingDataMat, datingLabels = file2matrix('KNN\datingTestSet2.txt')
     normalMatrix, ranges, minValue = autoNormal(datingDataMat)
     m = normalMatrix.shape[0]   #行数
     TestNumber = int(m*precent)    #取前10%的数据进行预测
