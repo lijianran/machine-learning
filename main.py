@@ -25,7 +25,7 @@ if __name__ == "__main__":
     # plt.ylabel(u'每年获取的飞行常客里程数')
     # #plt.ylabel(u'每周消耗的冰淇淋公升数')
     # ax.scatter(datingDataMat[:,0], datingDataMat[:,1], 15.0*array(datingLabels),15.0*array(datingLabels))
-    # plt.legend()
+    #
     # plt.show()
 
     # normalMat, ranges, minValue = KNN.knn.autoNormal(datingDataMat)
@@ -36,19 +36,17 @@ if __name__ == "__main__":
     # KNN.knn.datingClassTest()
     # KNN.knn.handwritingClassTest()
     ################################
-    import TREES.trees
-    data,labels = TREES.trees.createDataSet()
+    import TREES.tree
+    data,labels = TREES.tree.createDataSet()
     print(data)
-    print(TREES.trees.Xiangnong(data))
-    print(TREES.trees.SelectDataset(data,0,1))
-    # print(SelectDataset(data,0,0))
-    # print(SelectDataset(data,2,'no'))
-    # print(SelectDataset(data,2,'yes'))
-    print(TREES.trees.ChooseBestFeature(data))
-    print(TREES.trees.CreateTree(data,labels))
+    print(TREES.tree.calcShannonEnt(data))
+    print(TREES.tree.splitDataSet(data,0,1))
 
-    import TREES.treesPlotter
-    TREES.treesPlotter.createPlot()
+    print(TREES.tree.chooseBestFeatureToSplit(data))
+    print(TREES.tree.createTree(data,labels))
+
+    import TREES.treePlotter
+    TREES.treePlotter.createPlot()
     ##############################
     # matplotlib画图
     # fig = plt.figure()
