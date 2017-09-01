@@ -1,4 +1,4 @@
-#coding=utf-8
+# coding=utf-8
 # #2017.8.14
 
 from numpy import *
