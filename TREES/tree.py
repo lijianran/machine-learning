@@ -97,3 +97,16 @@ def classify(inputTree, featureLabels, test):
                 classLabel = secondDirectory[key]
     return classLabel
 
+def packTree(inputTree, filename):
+    import pickle
+    import os
+    os.chdir('D:\Documents\Github\machine learning\TREES')
+    file = open(filename, 'w')
+    pickle.dump(inputTree, file)
+    file.close()
+    os.chdir('D:\Documents\Github\machine learning')
+
+def unpackTree(filename):
+    import pickle
+    file = open(filename)
+    return pickle.load(file)

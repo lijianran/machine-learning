@@ -48,9 +48,7 @@ Temporary Items
 *.xml
 *.pyc
 *.iml
-*.txt
 .idea/
-LOGEST/
 SVM/
 ocr/
 testDigits/

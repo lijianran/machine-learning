@@ -35,22 +35,41 @@ if __name__ == "__main__":
     #
     # KNN.knn.handwritingClassTest()
     ################################
-    import TREES.tree
-    data,labels = TREES.tree.createDataSet()
-    print(data)
-    print(TREES.tree.xiangnong(data))
-    print(TREES.tree.splitDataSet(data,0,1))
-
-    print(TREES.tree.chooseBestFeatureToSplit(data))
-    myTree = TREES.tree.createTree(data,labels)
-    print(myTree)
-
+    # import TREES.tree
+    # data,labels = TREES.tree.createDataSet()
+    # print(data)
+    # print(TREES.tree.xiangnong(data))
+    # print(TREES.tree.splitDataSet(data,0,1))
+    #
+    # print(TREES.tree.chooseBestFeatureToSplit(data))
+    # myTree = TREES.tree.createTree(data,labels)
+    # print(myTree)
+    #
+    # import TREES.treePlotter
+    #
+    # #TREES.treePlotter.createPlot()
+    # print(TREES.treePlotter.getLeafNum(myTree))
+    # print(TREES.treePlotter.getTreeDepth(myTree))
+    #
+    # TREES.treePlotter.createPlot(myTree)
     import TREES.treePlotter
-    #TREES.treePlotter.createPlot()
-    print(TREES.treePlotter.getLeafNum(myTree))
-    print(TREES.treePlotter.getTreeDepth(myTree))
-
+    print(TREES.treePlotter.retrieveTree(1))
+    myTree = TREES.treePlotter.retrieveTree(0)
     TREES.treePlotter.createPlot(myTree)
+    import TREES.tree
+    data, labels = TREES.tree.createDataSet()
+    print(TREES.tree.classify(myTree, labels, [1,0]))
+    print(TREES.tree.classify(myTree, labels, [1,1]))
+
+    TREES.tree.packTree(myTree, 'tree.txt')
+    print(TREES.tree.unpackTree('TREES/tree.txt'))
+
+    file = open('TREES/lenses.txt')
+    lenses = [inst.strip().split('\t') for inst in file.readlines()]
+    lensesLabels = ['age', 'prescript', 'astigmatic', 'tearRate']
+    lensesTree = TREES.tree.createTree(lenses, lensesLabels)
+    print lensesTree
+    TREES.treePlotter.createPlot(lensesTree)
     ##############################
     # matplotlib画图
     # fig = plt.figure()
