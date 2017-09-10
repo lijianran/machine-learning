@@ -49,3 +49,9 @@ Temporary Items
 *.pyc
 *.iml
 *.txt
+.idea/
+LOGEST/
+SVM/
+ocr/
+testDigits/
+trainingDigits/
