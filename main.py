@@ -52,24 +52,24 @@ if __name__ == "__main__":
     # print(TREES.treePlotter.getTreeDepth(myTree))
     #
     # TREES.treePlotter.createPlot(myTree)
-    import TREES.treePlotter
-    print(TREES.treePlotter.retrieveTree(1))
-    myTree = TREES.treePlotter.retrieveTree(0)
-    TREES.treePlotter.createPlot(myTree)
-    import TREES.tree
-    data, labels = TREES.tree.createDataSet()
-    print(TREES.tree.classify(myTree, labels, [1,0]))
-    print(TREES.tree.classify(myTree, labels, [1,1]))
-
-    TREES.tree.packTree(myTree, 'tree.txt')
-    print(TREES.tree.unpackTree('TREES/tree.txt'))
-
-    file = open('TREES/lenses.txt')
-    lenses = [inst.strip().split('\t') for inst in file.readlines()]
-    lensesLabels = ['age', 'prescript', 'astigmatic', 'tearRate']
-    lensesTree = TREES.tree.createTree(lenses, lensesLabels)
-    print lensesTree
-    TREES.treePlotter.createPlot(lensesTree)
+    # import TREES.treePlotter
+    # print(TREES.treePlotter.retrieveTree(1))
+    # myTree = TREES.treePlotter.retrieveTree(0)
+    # TREES.treePlotter.createPlot(myTree)
+    # import TREES.tree
+    # data, labels = TREES.tree.createDataSet()
+    # print(TREES.tree.classify(myTree, labels, [1,0]))
+    # print(TREES.tree.classify(myTree, labels, [1,1]))
+    #
+    # TREES.tree.packTree(myTree, 'tree.txt')
+    # print(TREES.tree.unpackTree('TREES/tree.txt'))
+    #
+    # file = open('TREES/lenses.txt')
+    # lenses = [inst.strip().split('\t') for inst in file.readlines()]
+    # lensesLabels = ['age', 'prescript', 'astigmatic', 'tearRate']
+    # lensesTree = TREES.tree.createTree(lenses, lensesLabels)
+    # print lensesTree
+    # TREES.treePlotter.createPlot(lensesTree)
     ##############################
     # matplotlib画图
     # fig = plt.figure()
@@ -93,5 +93,31 @@ if __name__ == "__main__":
     # weights = gradAscent(data,label)
     # print(weights)
     ################################
+    import BAYES.bayes
+    list ,labels = BAYES.bayes.loadDataSet()
+    wordlist = BAYES.bayes.createWordList(list)
+    print wordlist
 
+    # vector = BAYES.bayes.creatWordVector(wordlist, list[0])
+    # print vector
 
+    trainMat = []
+    for postinDoc in list:
+        trainMat.append(BAYES.bayes.creatWordVector(wordlist, postinDoc))
+      #将所给的文档全部向量化放在一个list中
+    p0Vector, p1Vector, pAbusive = BAYES.bayes.train(trainMat, labels)
+      #分别计算出单词表中每个单词在侮辱性文本和正常文本中出现的概率
+
+    test1 = ['love', 'my', 'dalmation']
+    Doc1 = BAYES.bayes.creatWordVector(wordlist, test1)
+    if BAYES.bayes.classify(Doc1, p0Vector, p1Vector, pAbusive) == 1:
+        print test1, "classified as ABUSIVE!"
+    else:
+        print test1, "classified as NORMAL!"
+
+    test2 = ['stupid', 'garbage']
+    Doc2 = BAYES.bayes.creatWordVector(wordlist, test2)
+    if BAYES.bayes.classify(Doc2, p0Vector, p1Vector, pAbusive) == 1:
+        print test2, "classified as ABUSIVE!"
+    else:
+        print test2, "classified as NORMAL!"
