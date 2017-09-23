@@ -94,30 +94,24 @@ if __name__ == "__main__":
     # print(weights)
     ################################
     import BAYES.bayes
-    list ,labels = BAYES.bayes.loadDataSet()
-    wordlist = BAYES.bayes.createWordList(list)
-    print wordlist
-
-    # vector = BAYES.bayes.creatWordVector(wordlist, list[0])
-    # print vector
-
-    trainMat = []
-    for postinDoc in list:
-        trainMat.append(BAYES.bayes.creatWordVector(wordlist, postinDoc))
-      #将所给的文档全部向量化放在一个list中
-    p0Vector, p1Vector, pAbusive = BAYES.bayes.train(trainMat, labels)
-      #分别计算出单词表中每个单词在侮辱性文本和正常文本中出现的概率
-
-    test1 = ['love', 'my', 'dalmation']
-    Doc1 = BAYES.bayes.creatWordVector(wordlist, test1)
-    if BAYES.bayes.classify(Doc1, p0Vector, p1Vector, pAbusive) == 1:
-        print test1, "classified as ABUSIVE!"
-    else:
-        print test1, "classified as NORMAL!"
-
-    test2 = ['stupid', 'garbage']
-    Doc2 = BAYES.bayes.creatWordVector(wordlist, test2)
-    if BAYES.bayes.classify(Doc2, p0Vector, p1Vector, pAbusive) == 1:
-        print test2, "classified as ABUSIVE!"
-    else:
-        print test2, "classified as NORMAL!"
+    # list ,labels = BAYES.bayes.loadDataSet()
+    # wordlist = BAYES.bayes.createWordList(list)
+    # print wordlist
+    #
+    # # vector = BAYES.bayes.creatWordVector(wordlist, list[0])
+    # # print vector
+    #
+    # trainMat = []
+    # for postinDoc in list:
+    #     trainMat.append(BAYES.bayes.creatWordVector(wordlist, postinDoc))
+    #   #将所给的文档全部向量化放在一个list中
+    # p0Vector, p1Vector, pAbusive = BAYES.bayes.train(trainMat, labels)
+    #   #分别计算出单词表中每个单词在侮辱性文本和正常文本中出现的概率
+    #
+    # test = raw_input("Please input the Docs:")
+    # Doc = BAYES.bayes.creatWordVector(wordlist ,BAYES.bayes.textParse(test))
+    # if BAYES.bayes.classify(Doc, p0Vector, p1Vector, pAbusive) == 1:
+    #     print '"', test, '"', "classified as ABUSIVE!"
+    # else:
+    #     print '"', test, '"', "classified as NORMAL!"
+    BAYES.bayes.spamTest()
