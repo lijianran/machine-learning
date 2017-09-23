@@ -76,12 +76,12 @@ def textParse(bigString): #解析文本巨型字符串为单词列表
 def spamTest():
     docList = []; classList = []; fullText = [] #文章列表 类别列表 所有文章单词总和列表
     for i in range(1, 26):
-        wordsList = textParse(open('email/spam/%d.txt' % i).read())
+        wordsList = textParse(open('BAYES/email/spam/%d.txt' % i).read())
         docList.append(wordsList)
         fullText.extend(wordsList)
         classList.append(1)
 
-        wordsList = textParse(open('email/ham/%d.txt' % i).read())
+        wordsList = textParse(open('BAYES/email/ham/%d.txt' % i).read())
         docList.append(wordsList)
         fullText.extend(wordsList)
         classList.append(0)

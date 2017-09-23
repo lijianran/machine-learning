@@ -49,9 +49,6 @@ Temporary Items
 *.pyc
 *.iml
 .idea/
-SVM/
-ocr/
-testDigits/
-trainingDigits/
-/email/
-email/
+KNN/testDigits/
+KNN/trainingDigits/
+BAYES/email/
