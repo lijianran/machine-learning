@@ -93,7 +93,7 @@ if __name__ == "__main__":
     # weights = gradAscent(data,label)
     # print(weights)
     ################################
-    import BAYES.bayes
+    # import BAYES.bayes
     # list ,labels = BAYES.bayes.loadDataSet()
     # wordlist = BAYES.bayes.createWordList(list)
     # print wordlist
@@ -114,4 +114,15 @@ if __name__ == "__main__":
     #     print '"', test, '"', "classified as ABUSIVE!"
     # else:
     #     print '"', test, '"', "classified as NORMAL!"
-    BAYES.bayes.spamTest()
+    # BAYES.bayes.spamTest()
+    import LOGIST.logRegres
+    data, label = LOGIST.logRegres.loadDataSet()
+    # weights = LOGIST.logRegres.graidentAscent(data, label)
+    # print weights
+    # LOGIST.logRegres.plotBestFit(weights.getA()) #getA()把matrix转化为array
+
+    #改进
+    from numpy import *
+    weights = LOGIST.logRegres.gradientAscent1(array(data), label)  #numpy的array()转换为数组
+    print weights
+    LOGIST.logRegres.plotBestFit(weights)
